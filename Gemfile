@@ -1,14 +1,26 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.0.0'
+
 gem 'rails', '4.0.3'
 
 gem 'rails-api'
-
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem "versionist"
 
 gem 'angularjs-rails'
+
+gem 'thin'
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'selenium-webdriver'
+  gem 'simplecov', :require => false
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
