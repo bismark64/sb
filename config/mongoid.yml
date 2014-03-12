@@ -69,3 +69,15 @@ test:
         # low amounts for fast failures.
         max_retries: 1
         retry_interval: 0
+
+production:   
+  sessions:
+    default:
+      database: scratchbling
+      hosts:
+        - ds033489.mongolab.com:33489 
+      username: django
+      password: django123
+      options:
+        skip_version_check: true
+        safe: true
