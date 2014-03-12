@@ -79,5 +79,4 @@ production:
       username: django
       password: django123
       options:
-        skip_version_check: true
-        safe: true
+      
