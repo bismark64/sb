@@ -17,3 +17,4 @@
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
 Sb::Application.config.secret_token = '59a9d6befcd00e55968d3b9598bd04cb8862202d80b7660c92c0bef5f48f2f09b394cac6a53593497b71967ae22692d3de11b841a95c5cf14dcd63eb2a96e2e6'
+Sb::Application.config.secret_key_base = 'c1f1ba018660ecd57e9b'
