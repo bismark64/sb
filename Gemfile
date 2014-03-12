@@ -11,16 +11,22 @@ gem 'angularjs-rails'
 
 gem 'thin'
 
+gem "mongoid", "~> 4.0.0.beta1"
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem "json_spec"
 end
 
 group :test do
   gem 'webmock'
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
+  gem 'ffaker'
+  gem 'database_cleaner'
 end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

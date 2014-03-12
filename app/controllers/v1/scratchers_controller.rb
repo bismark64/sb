@@ -1,8 +1,8 @@
-class ScratchersController < ApplicationController
+class V1::ScratchersController < V1::BaseController
   # GET /scratchers
   # GET /scratchers.json
   def index
-    @scratchers = Scratcher.all
+    @scratchers = Scratcher.all.to_a
 
     render json: @scratchers
   end
@@ -18,7 +18,7 @@ class ScratchersController < ApplicationController
   # POST /scratchers
   # POST /scratchers.json
   def create
-    @scratcher = Scratcher.new(params[:scratcher])
+    @scratcher = Scratcher.new(permitted_params)
 
     if @scratcher.save
       render json: @scratcher, status: :created, location: @scratcher
@@ -32,7 +32,7 @@ class ScratchersController < ApplicationController
   def update
     @scratcher = Scratcher.find(params[:id])
 
-    if @scratcher.update(params[:scratcher])
+    if @scratcher.update(permitted_params)
       head :no_content
     else
       render json: @scratcher.errors, status: :unprocessable_entity
@@ -46,5 +46,11 @@ class ScratchersController < ApplicationController
     @scratcher.destroy
 
     head :no_content
+  end
+
+  private
+
+  def permitted_params
+    params.require(:scratcher).permit(:name, :size, :color, :cost)
   end
 end
